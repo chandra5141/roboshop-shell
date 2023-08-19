@@ -2,7 +2,7 @@ script_location=$(pwd)
 echo -e "\e[33m nginx is installing \e[0m"
 yum install nginx -y   &>> /tmp/logs
 
--e "\e[33m remove default old content \e[0m"
+echo -e "\e[33m remove default old content \e[0m"
 rm -rf /usr/share/nginx/html/*  &>> /tmp/logs
 
 echo -e "\e[33m download frontend content \e[0m"
