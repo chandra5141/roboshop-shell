@@ -1,5 +1,5 @@
 script_location=$(pwd)
-echo "\e[31m nginx is installing \e[0m"
+echo -e "\e[31m nginx is installing \e[0m"
 yum install nginx -y   >> /tmp/history
 
 echo "starting nginx"
