@@ -23,5 +23,5 @@ systemctl restart nginx  >> /tmp/logs
 echo -e "\e[33m start nginx  \e[0m"
 systemctl start nginx  >> /tmp/logs
 
--e "\e[33m nginx enable \e[0m"
+echo -e "\e[33m nginx enable \e[0m"
 systemctl enable nginx  >> /tmp/logs
