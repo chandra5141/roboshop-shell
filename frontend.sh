@@ -1,3 +1,4 @@
+set -e
 script_location=$(pwd)
 echo -e "\e[33m nginx is installing \e[0m"
 yum install nginx -y   &>> /tmp/logs
