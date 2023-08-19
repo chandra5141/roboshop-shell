@@ -1,3 +1,4 @@
+script_location=$(pwd)
 echo "nginx is installing"
 yum install nginx -y   >> /tmp/history
 
@@ -20,7 +21,7 @@ echo "unzipping the frontend content"
 unzip /tmp/frontend.zip  >> /tmp/history
 
 echo "copying file roboshop.conf to path of nginx"
-cp files/roboshop.conf  /etc/nginx/default.d/roboshop.conf   >> /tmp/history
+cp ${script_location}/files/roboshop.conf  /etc/nginx/default.d/roboshop.conf   >> /tmp/history
 
 echo "restarting nginx "
 systemctl restart nginx  >> /tmp/history
