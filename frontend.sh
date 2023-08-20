@@ -1,38 +1,38 @@
 set -e
 source common.sh
 
-echo -e "\e[33m nginx is installing\e[0m"
+print_head "nginx is installing"
 yum install nginx -y   &>>{LOG}
 status_check
 
-echo -e "\e[33m remove default old content\e[0m"
+print_head " remove default old content"
 rm -rf /usr/share/nginx/html/*  &>>{LOG}
 status_check
 
-echo -e "\e[33m download frontend content\e[0m"
+print_head "download frontend content"
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip  &>>{LOG}
 status_check
 
-echo -e "\e[33m changing the directory to nginx\e[0m"
+print_head "changing the directory to nginx"
 cd /usr/share/nginx/html  &>>LOG
 status_check
 
-echo -e "\e[33m Extract frontend content\e[0m"
+print_head "Extract frontend content"
 unzip /tmp/frontend.zip  &>>{LOG}
 status_check
 
-echo -e "\e[33m copying the config file\e[0m"
+print_head "copying the config file"
 cp ${script_location}/files/roboshop.conf  /etc/nginx/default.d/roboshop.conf   &>>{LOG}
 status_check
 
-echo -e "\e[33m starting nginx\e[0m"
+print_head "starting nginx"
 systemctl  start nginx  &>>{LOG}
 status_check
 
-echo -e "\e[33m restarting nginx\e[0m"
+print_head "restarting nginx"
 systemctl restart nginx &>>{LOG}
 status_check
 
-echo -e "\e[33m nginx enabling\e[0m"
+print_head "nginx enabling"
 systemctl enable nginx  &>>{LOG}
 status_check
