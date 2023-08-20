@@ -5,7 +5,6 @@ echo -e "\e[33m copying mongodb repo file\e[0m"
 cp ${set_location}/files/mongodb.repo  /etc/yum.repos.d/mongodb.repo &>>${LOG}
 status_check
 
-
 echo -e "\e[33m installing the mongodb\e[0m"
 yum install mongodb-org -y &>>${LOG}
 status_check

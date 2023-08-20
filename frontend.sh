@@ -25,11 +25,11 @@ echo -e "\e[33m copying the config file\e[0m"
 cp ${script_location}/files/roboshop.conf  /etc/nginx/default.d/roboshop.conf   &>>{LOG}
 status_check
 
-echo -e "\e[33m restart nginx\e[0m"
+echo -e "\e[33m starting nginx\e[0m"
 systemctl  start nginx  &>>{LOG}
 status_check
 
-echo -e "\e[33m starting nginx\e[0m"
+echo -e "\e[33m restarting nginx\e[0m"
 systemctl restart nginx &>>{LOG}
 status_check
 
