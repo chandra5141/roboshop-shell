@@ -43,7 +43,7 @@ if [ -z "${SGID}" ]; then
 fi
 
 
-for component in frontend ; do
+for component in frontend mongodb ; do
   COMPONENT="${component}-${env}"
   create_ec2
 done

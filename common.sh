@@ -6,7 +6,7 @@ status_check () {
    then
     echo -e "\e[32m SUCCESS\e[0m"
   else
-    echo -e "\e[32m FAIlURE\e[0m"
+    echo -e "\e[31m FAIlURE\e[0m"
     echo "Refer the log file in path ${LOG}"
     exit
   fi
