@@ -47,18 +47,18 @@ print_head "enabling the catalogue"
 systemctl enable catalogue &>>${LOG}
 status_check
 
-print_head "copy catalogue service file"
+print_head "start catalogue service file"
 systemctl start catalogue &>>${LOG}
 status_check
 
-print_head "copy catalogue service file"
+print_head "copy catalogue mongo.repo file"
 cp ${script_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
 status_check
 
-print_head "copy catalogue service file"
+print_head "install mongodb-ord"
 yum install mongodb-org-shell -y &>>${LOG}
 status_check
 
-print_head "copy catalogue service file"
+print_head "connect to mongodb"
 mongo --host mongodb-dev.chandupcs.online </app/schema/catalogue.js &>>${LOG}
 status_check
