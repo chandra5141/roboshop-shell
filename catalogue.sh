@@ -11,7 +11,7 @@ status_check
 print_head "check and adding roboshop"
 id roboshop
 if [ $? -ne 0]; then
-  useradd roboshop &>>${LOG}
+  useradd roboshop &>>{LOG}
 status_check
 
 print_head "make app directory"
