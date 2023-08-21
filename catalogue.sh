@@ -21,16 +21,10 @@ print_head "download catalogue content"
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>>${LOG}
 status_check
 
-print_head "cd to app"
-cd /app &>>${LOG}
-status_check
+cd /app
 
 print_head "extract catalogue content"
-unzip /tmp/catalogue.zip &>>${LOG}
-status_check
-
-print_head "cd to app"
-cd /app &>>${LOG}
+unzip /tmp/catalogue.zip -y &>>${LOG}
 status_check
 
 print_head "NPM install"
