@@ -22,7 +22,7 @@ curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue
 status_check
 
 print_head "removing old content if any"
-rm -rf  /app  &>>${LOG}
+rm -rf  /app/*  &>>${LOG}
 status_check
 
 cd /app
