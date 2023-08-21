@@ -22,7 +22,7 @@ curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue
 status_check
 
 print_head "removing old content if any"
-rm -rf  /app/*  &>>${LOG}
+rm -rf  /app  &>>${LOG}
 status_check
 
 cd /app
@@ -59,6 +59,6 @@ print_head "install mongodb-ord"
 yum install mongodb-org-shell -y &>>${LOG}
 status_check
 
-print_head "connect to mongodb"
+print_head "connect to mongodb and load schema"
 mongo --host mongodb-dev.chandupcs.online </app/schema/catalogue.js &>>${LOG}
 status_check
