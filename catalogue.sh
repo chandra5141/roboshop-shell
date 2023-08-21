@@ -52,7 +52,7 @@ systemctl start catalogue &>>${LOG}
 status_check
 
 print_head "copy catalogue service file"
-cp ${set_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
+cp ${script_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
 status_check
 
 print_head "copy catalogue service file"
