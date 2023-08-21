@@ -31,6 +31,8 @@ print_head "extract catalogue content"
 unzip /tmp/catalogue.zip &>>${LOG}
 status_check
 
+cd /app
+
 print_head "NPM install"
 npm install &>>${LOG}
 status_check
