@@ -1,65 +1,67 @@
 source common.sh
 
 print_head "downloading the nodejs"
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>>{LOG}
 status_check
 
 print_head "installing nodejs"
-yum install nodejs -y
+yum install nodejs -y  &>>{LOG}
 status_check
 
-print_head "adding roboshop"
-useradd roboshop
+print_head "check and adding roboshop"
+id roboshop
+if [ $? -ne 0]; then
+  useradd roboshop &>>$LOG
 status_check
 
 print_head "make app directory"
-mkdir -p /app
+mkdir -p /app &>>{LOG}
 status_check
 
 print_head "download catalogue content"
-curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
+curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>>{LOG}
 status_check
 
 print_head "cd to app"
-cd /app
+cd /app &>>{LOG}
 status_check
 
 print_head "extract catalogue content"
-unzip /tmp/catalogue.zip
+unzip /tmp/catalogue.zip &>>{LOG}
 status_check
 
 print_head "cd to app"
-cd /app
+cd /app &>>{LOG}
 status_check
 
 print_head "NPM install"
-npm install
+npm install &>>{LOG}
 status_check
 
 print_head "copy catalogue service file"
-cp ${set_location}/files/catalogue.service  /etc/systemd/system/catalogue.service
+cp ${set_location}/files/catalogue.service  /etc/systemd/system/catalogue.service &>>{LOG}
 status_check
 
 print_head "daemon reload"
-systemctl daemon-reload
+systemctl daemon-reload &>>{LOG}
 status_check
 
 print_head "enabling the catalogue"
-systemctl enable catalogue
+systemctl enable catalogue &>>{LOG}
 status_check
 
 print_head "copy catalogue service file"
-systemctl start catalogue
+systemctl start catalogue &>>{LOG}
 status_check
 
 print_head "copy catalogue service file"
-cp ${set_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo
+cp ${set_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo &>>{LOG}
 status_check
 
 print_head "copy catalogue service file"
-yum install mongodb-org-shell -y
+yum install mongodb-org-shell -y &>>{LOG}
 status_check
 
 print_head "copy catalogue service file"
-mongo --host mongodb-dev.chandupcs.online </app/schema/catalogue.js
+mongo --host mongodb-dev.chandupcs.online </app/schema/catalogue.js &>>{LOG}
 status_check
