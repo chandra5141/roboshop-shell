@@ -16,3 +16,9 @@ status_check () {
   fi
 }
 
+useradd () {
+  if [ $? -ne 0]; then
+    useradd roboshop &>>${LOG}
+  fi
+}
+
