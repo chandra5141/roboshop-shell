@@ -43,7 +43,7 @@ if [ -z "${SGID}" ]; then
 fi
 
 
-for component in cart user  redis ; do
+for component in mysql rabbitmq shipping payment; do
   COMPONENT="${component}-${env}"
   create_ec2
 done
