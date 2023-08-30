@@ -43,7 +43,7 @@ if [ -z "${SGID}" ]; then
 fi
 
 
-for component in sonar_qube; do
+for component in nexus; do
   COMPONENT="${component}-${env}"
   create_ec2
 done
