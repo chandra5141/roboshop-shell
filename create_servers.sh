@@ -43,7 +43,7 @@ if [ -z "${SGID}" ]; then
 fi
 
 
-for component in nexus; do
+for component in nexus prometheus; do
   COMPONENT="${component}-${env}"
   create_ec2
 done
