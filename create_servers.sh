@@ -43,7 +43,7 @@ if [ -z "${SGID}" ]; then
 fi
 
 
-for component in  elk; do
+for component in  test; do
   COMPONENT="${component}-${env}"
   create_ec2
 done
