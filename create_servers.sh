@@ -3,7 +3,7 @@
 ##### Change these values ###
 ZONE_ID="Z03530733RI8BOR2515BY"
 DOMAIN="chandupcs.online"
-SG_NAME="all"
+SG_NAME="all_allowed"
 env=dev
 #############################
 
