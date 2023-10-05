@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##### Change these values ###
-ZONE_ID="Z0388000D98EZSBQJXAU"
+ZONE_ID="Z03530733RI8BOR2515BY"
 DOMAIN="chandupcs.online"
 SG_NAME="all"
 env=dev
