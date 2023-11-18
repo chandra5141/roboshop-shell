@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##### Change these values ###
-ZONE_ID="Z03530733RI8BOR2515BY"
+ZONE_ID="Z05891071L1IC4X3VKG21"
 DOMAIN="chandupcs.online"
 SG_NAME="all_allowed"
 env=dev
@@ -43,7 +43,7 @@ if [ -z "${SGID}" ]; then
 fi
 
 
-for component in  load_gen  ; do
+for component in  slave  ; do
   COMPONENT="${component}-${env}"
   create_ec2
 done
